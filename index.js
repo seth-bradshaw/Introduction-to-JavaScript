@@ -111,15 +111,46 @@ function dog(age, weight) {
 // it should return you won or you lost based on the rules of the game (you may need to look up the rules if you have not played before)
 // use math.random to determine the computers choice 
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number 
-let userSelection = prompt("Rock, paper, or sissors?");
+var userSelection = prompt("rock, paper, or scissors?");
+var computerSelection = Math.random(0, 1);
+if (computerSelection <= 0.33) {
+  computerSelection = "rock";
+} else if(computerSelection <= 0.66){
+  computerSelection = "paper";
+} else {
+  computerSelection = "scissors"
+}
 
-
-function game(rock,paper,sissors){
-    number = Math.floor((Math.random() * 3) + 1);
-    if(number === 1){
-
+function game(userChoice, computerChoice){
+    if(userChoice === computerChoice){
+      return "It's a tie.";
+    }
+    if (userChoice === "rock"){
+      if (computerChoice === "scissors"){
+        return "You've bested you're opponent.";
+    } else {
+      return "You've been bested."
+      }
+    }
+    if (userChoice === "paper"){
+      if (computerChoice === "rock"){
+        return "You've bested you're opponent.";
+    } else {
+      return "You've been bested."
+      }
+    }
+    if (userChoice === "scissors"){
+      if (computerChoice === "paper"){
+        return "You've bested you're opponent.";
+    } else {
+      return "You've been bested."
+      }
     }
 }
+
+console.log("You have selected " + userSelection);
+console.log("Computer selected " + computerSelection);
+console.log(game(userSelection, computerSelection));
   
   
 
@@ -127,12 +158,22 @@ function game(rock,paper,sissors){
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
 
+function milesConverter(km, miles){
+  miles = km * 0.621371;
+  return miles;
+}
+console.log(milesConverter(5))
 
 
 
 
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
   
+function cmConverter(feet, cm){
+  cm = feet * 30.48;
+  return cm;
+}
+console.log(cmConverter(10))
 
 
 
@@ -141,7 +182,11 @@ function game(rock,paper,sissors){
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
-  
+var sodas;
+
+for(sodas = 99; sodas > 0; sodas--){
+  console.log(sodas + " bottles of soda on the wall, " + sodas + " bottles of soda, take one down pass it around "  + (sodas - 1) + " bottles of soda on the wall")
+}
 
 
 
@@ -155,6 +200,20 @@ function game(rock,paper,sissors){
 //60s should be D 
 //and anything below 60 should be F
   
+var percent = Math.floor(Math.random() * 101);
+
+if (percent >= 90){
+  console.log("A");
+} else if (percent >= 80 && percent < 90){
+  console.log("B");
+} else if (percent >= 70 && percent < 80){
+  console.log("C");
+} else if (percent >= 60 && percent < 70){
+  console.log("D");
+} else {
+  console.log("F");  
+}
+console.log(percent);
 
   
   
